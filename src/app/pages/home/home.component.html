@@ -1,0 +1,48 @@
+<mat-toolbar class="navbar">
+    <div class="section">
+        <span>Task</span>
+        <button mat-icon-button class="star">
+            <mat-icon height="16px">star_border</mat-icon>
+        </button>
+        <button mat-icon-button class="people_outline">
+            <mat-icon>people_outline</mat-icon>
+        </button>
+        <button mat-icon-button class="view_column">
+            <mat-icon>view_column</mat-icon>
+            Board
+        </button>
+    </div>
+    <div class="section">
+        <button mat-icon-button class="trending_up">
+            <mat-icon>trending_up</mat-icon>
+        </button>
+        <button mat-icon-button class="flash_on">
+            <mat-icon>flash_on</mat-icon>
+        </button>
+        <button mat-icon-button class="filter_list">
+            <mat-icon>filter_list</mat-icon>
+            Filter
+        </button>
+        <img src="assets/30.png">
+        <button mat-icon-button class="person_add">
+            <mat-icon>person_add</mat-icon>
+            Share
+        </button>
+        <button mat-icon-button class="more_horiz">
+            <mat-icon>more_horiz</mat-icon>
+        </button>
+    </div>
+</mat-toolbar>
+<div class="home-container">
+    <div class="home">
+        <app-model [data]="data" type="todo" (onDelete)="deleteItem($event)" (onAdd)="addNewItem($event)"> </app-model>
+    </div>
+    <div class="home">
+        <app-model [data]="data" type="inprogress" (onDelete)="deleteItem($event)"
+            (onAdd)="addNewItem($event)"></app-model>
+    </div>
+    <div class="home">
+        <app-model [data]="data" type="done" (onUpdate)="newUpdateItem($event.description,$event.id)"
+            (onDelete)="deleteItem($event)" (onAdd)="addNewItem($event)"></app-model>
+    </div>
+</div>

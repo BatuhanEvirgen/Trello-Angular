@@ -1,0 +1,50 @@
+.navbar {
+    background-color: #0000003d;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+
+    .example-spacer {
+        flex: 1 1 auto;
+    }
+
+    .section {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        button {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background-color: transparent;
+            color: white;
+            border: none;
+            cursor: pointer;
+
+            :hover {
+                background-color: rgba(255, 255, 255, 0.229);
+                border-radius: 8px;
+            }
+        }
+
+        img {
+            border-left: 1px solid;
+            padding-left: 5px;
+        }
+
+        mat-icon {
+            transform: scale(0.8);
+        }
+    }
+}
+
+.home-container {
+    flex-direction: row;
+    display: flex;
+
+    .home {
+        width: 20%;
+        margin: 20px 0px 0px 20px;
+    }
+}

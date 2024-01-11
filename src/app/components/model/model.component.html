@@ -1,0 +1,36 @@
+<div class="container">
+    <h3 class="title">{{title[type]}}
+        <button mat-icon-button class="more_horiz">
+            <mat-icon>more_horiz</mat-icon>
+        </button>
+    </h3>
+    <div>
+        <table class="table">
+            <tbody class="table">
+                <tr *ngFor="let item of getItems(); let i = index">
+                    <td class="description" (click)="enableEditing(i)">
+                        <ng-container #notEdit *ngIf="selectedItem!=i ;  else edit">
+                            {{item.description}}
+                        </ng-container>
+                        <ng-template #edit>
+                            <input type="text" #todoRe [(ngModel)]="item.description">
+                            <button (click)="updateItem(todoRe.value, item.id); todoRe.value='';">Add</button>
+                        </ng-template>
+                        <button (click)="removeItem(item.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="showInput">
+            <input class="adding" type="text" #todoText placeholder="Enter a title">
+            <div class="buttons">
+                <button (click)="addItem(todoText.value); todoText.value='';">Add</button>
+                <button class="button" (click)="showInput = false">X</button>
+            </div>
+        </div>
+        <button class="button" (click)="showInput = true" *ngIf="!showInput"><mat-icon>add</mat-icon>
+            Add a card</button>
+    </div>
+</div>
